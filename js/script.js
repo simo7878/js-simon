@@ -11,11 +11,23 @@ alert('ciao');
 //Un alert espone 5 numeri casuali
 var arreyNumeriRandom = [];
 var arreyNumeriPrompt = [];
+var risultato = 0;
 
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function numeriPresenti(lista, numero) {
+  for (var i = 0; i < lista.length; i++) {
+    if (lista[i] == numero) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
 }
 
 for (var i = 1; i < 6; i++) {
@@ -36,4 +48,16 @@ setTimeout(function() {
     console.log(arreyNumeriPrompt);
   }
   i++
-})
+  break;
+}
+var y = 0;
+
+while (y < 5) {
+  if (numeriPresenti(arreyNumeriRandom, arreyNumeriPrompt[y]) == true) {
+    risultato++;
+  }
+  y++
+}
+console.log(risultato);
+
+}, 1000);
